@@ -18,8 +18,11 @@ public class UserViewModels extends ViewModel {
     }
 
     public void onclick(String firstName,String lastName) {
+        //Viewmodel update model
         userModels.setFirstName(firstName);
         userModels.setLastName(lastName);
+
+        //viewmodel expose stream of data
         userModelsLiveData.postValue(userModels.getFirstName()+userModels.getLastName());
     }
 

@@ -24,11 +24,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         editText1 = findViewById(R.id.firstnametext);
         editText2 = findViewById(R.id.lastnametext);
+        //view has reference of ViewModel
         userViewModels = ViewModelProviders.of(this).get(UserViewModels.class);
 
         subscribeUserViewModel();
     }
 
+    //view subscribe for viewmodel data
     private void subscribeUserViewModel() {
         userViewModels.getUserModels().observe(this, new Observer<String>() {
             @Override
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         });;
     }
 
+    //View notify viewmodel of user input
     public void click(View view){
         userViewModels.onclick(String.valueOf(editText1.getText()),
                 String.valueOf(editText2.getText()));
